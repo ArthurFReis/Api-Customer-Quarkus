@@ -41,18 +41,7 @@ public class CustomerService {
         return Response.status(Response.Status.ACCEPTED).build();
 
     }
-    public Response deleteCustomer(Customer customer, long id){
-
-        Customer customerObj = customerRepository.findById(id);
-
-        if(customerObj != null){
-            customerRepository.delete(customerObj);
-
-        } else{
-            return  Response.status(Response.Status.NOT_FOUND).build();
-        }
-
-        return Response.status(Response.Status.ACCEPTED).build();
-
+    public void deleteCustomer(Customer customer){
+        customerRepository.delete(customer);
     }
 }

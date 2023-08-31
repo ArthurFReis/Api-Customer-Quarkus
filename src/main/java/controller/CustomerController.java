@@ -5,11 +5,8 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import entity.Customer;
 import jakarta.ws.rs.core.Response;
-import org.jboss.resteasy.reactive.RestPath;
 import service.CustomerService;
 
-import java.util.HashMap;
-import java.util.Map;
 
 
 import java.util.ArrayList;
@@ -47,12 +44,13 @@ public class CustomerController {
 
     }
 
-    @DELETE
-    @Path("{id}")
+   @DELETE
     @Transactional
-    public void deleteCustomer(@PathParam("id") Long id,Customer customer){
+    public void deleteCustomer(Customer customer){
 
-         customerService.deleteCustomer(customer, id);
+        customerService.deleteCustomer(customer);
     }
 
 }
+
+
