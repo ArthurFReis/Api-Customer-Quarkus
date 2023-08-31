@@ -48,9 +48,11 @@ public class CustomerController {
     }
 
     @DELETE
+    @Path("{id}")
     @Transactional
-    public void deleteCustomer(Customer customer){
-        customerService.deleteCustomer(customer);
+    public void deleteCustomer(@PathParam("id") Long id,Customer customer){
+
+         customerService.deleteCustomer(customer, id);
     }
 
 }
